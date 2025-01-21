@@ -1,15 +1,21 @@
 package pl.edu.agh.multipleks;
 
 public class Screening {
-    String date;
-    Movie movie;
+    private String date;
+    private Movie movie;
 
     public Screening(String date, Movie movie){
         this.date = date;
         this.movie = movie;
     }
 
-    public String getMovie(){
-        System.out.println(String.format("%s: "));
+    public Movie getMovie(){
+        return this.movie;
     }
+
+    public void printScreening(){
+        System.out.println(this.date);
+        System.out.println(this.movie.title);
+    }
+
 }
