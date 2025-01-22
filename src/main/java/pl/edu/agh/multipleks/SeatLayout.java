@@ -28,6 +28,10 @@ public class SeatLayout {
         this.layout = layout;
     }
 
+    public SeatLayout(SeatLayout another){
+        this.layout = another.layout;
+    }
+
     public void printLayout(){
         for (Map.Entry<Character, List<String>> e : this.layout.entrySet()){
             System.out.print(String.format("%c: ", e.getKey()));

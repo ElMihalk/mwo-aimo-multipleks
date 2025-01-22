@@ -16,6 +16,9 @@ public class ScreeningRoom {
     public List<Screening> getScreenings(){
         return screenings;
     }
-    
+
+    public void addScreening(Screening screening){
+        this.screenings.add(screening);
+    }
 
 }
