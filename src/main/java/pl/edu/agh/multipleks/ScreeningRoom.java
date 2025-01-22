@@ -16,5 +16,6 @@ public class ScreeningRoom {
     public List<Screening> getScreenings(){
         return screenings;
     }
+    
 
 }
