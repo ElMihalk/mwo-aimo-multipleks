@@ -6,13 +6,11 @@ import java.util.List;
 public class ScreeningRoom {
     private String designation;
     private List<Screening> screenings = new ArrayList<>();
+    private SeatLayout layout;
 
-    public ScreeningRoom(String designation) {
+    public ScreeningRoom(String designation, SeatLayout layout) {
         this.designation = designation;
-    }
-
-    public void findMovie(String title){
-
+        this.layout = layout;
     }
 
     public List<Screening> getScreenings(){

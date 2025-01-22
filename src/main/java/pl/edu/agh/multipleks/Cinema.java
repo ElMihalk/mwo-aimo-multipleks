@@ -42,4 +42,6 @@ public class Cinema {
     public void addRoom(ScreeningRoom room){
         screeningRooms.add(room);
     }
+
+
 }
