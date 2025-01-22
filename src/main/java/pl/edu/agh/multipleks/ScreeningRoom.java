@@ -18,6 +18,7 @@ public class ScreeningRoom {
     }
 
     public void addScreening(Screening screening){
+        screening.addLayout(this.layout);
         this.screenings.add(screening);
     }
 

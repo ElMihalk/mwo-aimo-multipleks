@@ -17,13 +17,13 @@ public class SeatLayout {
         Map<Character,List<String>> layout = new HashMap<>();
         char rowMarker = 'A';
         for (Integer nOfSeats : seatPerRow){
-            rowMarker++;
             List<String> seatNumbers = IntStream
                     .rangeClosed(1,nOfSeats)
                     .boxed()
                     .map(Objects::toString)
                     .collect(Collectors.toList());
             layout.put(rowMarker,seatNumbers);
+            rowMarker++;
         }
         this.layout = layout;
     }
@@ -35,11 +35,16 @@ public class SeatLayout {
     public void printLayout(){
         for (Map.Entry<Character, List<String>> e : this.layout.entrySet()){
             System.out.print(String.format("%c: ", e.getKey()));
-            System.out.print(" ".repeat(3*(this.maxSeats - e.getValue().size())/2));
+            //TODO investigate
+//            System.out.print(" ".repeat(3*(this.maxSeats - e.getValue().size())/2));
             for (String seat : e.getValue()){
                 System.out.print(String.format("[%s]", seat));
             }
             System.out.println();
         }
+    }
+
+    public Map<Character, List<String>> getLayout(){
+        return this.layout;
     }
 }
