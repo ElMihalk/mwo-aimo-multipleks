@@ -35,19 +35,22 @@ public class Cinema {
         System.out.println("=".repeat(30));
     }
 
-    public List<Screening> findMovie(String title){
+    public void findMovie(String title){
         List<Screening> validScreenings = new ArrayList<>();
+        System.out.println(String.format("\nSearch results for \"%s\":", title));
         for (ScreeningRoom room : this.screeningRooms){
             for (Screening screening : room.getScreenings()){
                 if (screening.getMovie().getTitle().equals(title)){
+                    System.out.println("=".repeat(20));
                     validScreenings.add(screening);
+                    screening.printScreening();
+                    System.out.println("=".repeat(20));
                 }
             }
         }
         if (validScreenings.isEmpty()){
             System.out.println("No movies found!");
         }
-        return validScreenings;
     }
 
     public void addRoom(ScreeningRoom room){

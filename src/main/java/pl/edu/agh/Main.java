@@ -62,7 +62,8 @@ public class Main {
 //        Układ sali kinowej po zakupie biletów
         screening1.getLayout().printLayout();
 
-        System.out.println(cinema1.findMovie("James Bon"));
+//        Wyszukiwanie spektakli po tytule filmu
+        cinema1.findMovie("James Bon");
     }
 
 }

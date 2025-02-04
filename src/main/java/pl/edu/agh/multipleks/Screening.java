@@ -52,7 +52,7 @@ public class Screening {
     public void printScreening(){
         printDate();
         System.out.println(this.time);
-        System.out.println(this.movie.title);
+        System.out.println(this.movie.getTitle());
         if(this.is3D){
             System.out.println("3D");
         }

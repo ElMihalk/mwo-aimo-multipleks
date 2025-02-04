@@ -1,8 +1,8 @@
 package pl.edu.agh.multipleks;
 
 public class Ticket {
-    String seat;
-    Screening screening;
+    private String seat;
+    private Screening screening;
 
     public Ticket(String seat, Screening screening) {
         this.seat = seat;
@@ -11,7 +11,7 @@ public class Ticket {
 
     public void printTicket(){
         System.out.println("=".repeat(10));
-        System.out.println(String.format("Title: %s", this.screening.getMovie().title));
+        System.out.println(String.format("Title: %s", this.screening.getMovie().getTitle()));
         this.screening.printDate();
         System.out.println(this.screening.getTime());
         System.out.println(String.format("Seat: %s", this.seat));
