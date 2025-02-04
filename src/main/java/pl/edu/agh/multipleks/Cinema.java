@@ -1,6 +1,8 @@
 package pl.edu.agh.multipleks;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Cinema {
@@ -15,13 +17,22 @@ public class Cinema {
 
     public void printProgramme(){
         List<Screening> printScreenings = new ArrayList<>();
+        System.out.println("=".repeat(30));
+        System.out.println(String.format("%s programme", this.name));
         for (ScreeningRoom room : this.screeningRooms){
             for (Screening screening : room.getScreenings()){
-                System.out.println("=".repeat(10));
-                screening.printScreening();
-                System.out.println("=".repeat(10));
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(new Date());
+                cal.add(Calendar.DATE, 7);
+                Date weekAhead = cal.getTime();
+                if (screening.getDate().after(new Date()) && screening.getDate().before(weekAhead)){
+                    System.out.println("=".repeat(10));
+                    screening.printScreening();
+                    System.out.println("=".repeat(10));
+                }
             }
         }
+        System.out.println("=".repeat(30));
     }
 
     public List<Screening> findMovie(String title){

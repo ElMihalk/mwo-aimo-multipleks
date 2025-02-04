@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-    String firstname;
-    String lastname;
+    String firstname = "";
+    String lastname = "";
     String emailAddress;
     List<Ticket> tickets = new ArrayList<>();
 
@@ -21,7 +21,10 @@ public class Customer {
 
     public void checkTickets(){
         System.out.println("=".repeat(30));
-        System.out.println(String.format("%s %s", this.firstname, this.lastname));
+        if (!this.firstname.equals("") && !this.lastname.equals("")){
+            System.out.println(String.format("%s %s", this.firstname, this.lastname));
+        }
+
         System.out.println(String.format("%s", this.emailAddress));
         for (Ticket ticket : this.tickets){
             ticket.printTicket();

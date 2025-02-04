@@ -1,24 +1,64 @@
 package pl.edu.agh.multipleks;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 public class Screening {
-    private String date;
+    private Date date;
+    private String time;
     private Movie movie;
     private SeatLayout screeningLayout;
+    private boolean isVIP = false;
+    private boolean is3D = false;
 
-    public Screening(String date, Movie movie){
+    public Screening(Date date, String time, Movie movie){
         this.date = date;
+        this.time = time;
         this.movie = movie;
+    }
+
+    public void setVIP(){
+        this.isVIP = !this.isVIP;
+    }
+
+    public void set3D(){
+        this.is3D = !this.is3D;
+    }
+
+    public boolean get3D(){
+        return this.is3D;
+    }
+
+    public boolean getVIP(){
+        return this.isVIP;
     }
 
     public Movie getMovie(){
         return this.movie;
     }
 
-    public String getDate(){ return this.date; }
+    public Date getDate(){ return this.date; }
+
+    public String getTime(){
+        return this.time;
+    }
+
+    public void printDate(){
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM");
+        System.out.println(format.format(this.date));
+    }
 
     public void printScreening(){
-        System.out.println(this.date);
+        printDate();
+        System.out.println(this.time);
         System.out.println(this.movie.title);
+        if(this.is3D){
+            System.out.println("3D");
+        }
+        if (this.isVIP){
+            System.out.println("VIP");
+        }
     }
 
     public void addLayout(SeatLayout layout){

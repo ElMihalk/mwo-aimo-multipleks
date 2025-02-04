@@ -12,8 +12,19 @@ public class Ticket {
     public void printTicket(){
         System.out.println("=".repeat(10));
         System.out.println(String.format("Title: %s", this.screening.getMovie().title));
-        System.out.println(String.format("Date: %s", this.screening.getDate()));
+        this.screening.printDate();
+        System.out.println(this.screening.getTime());
         System.out.println(String.format("Seat: %s", this.seat));
+        String threeD = "No";
+        if (screening.get3D()){
+            threeD = "Yes";
+        }
+        System.out.println(String.format("3D: %s", threeD));
+        String vip = "No";
+        if (screening.getVIP()){
+            vip = "Yes";
+        }
+        System.out.println(String.format("VIP: %s", vip));
         System.out.println("=".repeat(10));
     }
 
